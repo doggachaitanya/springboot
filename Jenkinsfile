@@ -29,5 +29,19 @@ pipeline {
                 sh 'mvn test'
             }
         }
+         stage ('Sonar Qube Analysis')
+        {
+            steps {
+                withSonarQubeEnv('sonar-server'){
+                   sh '''
+                    mvn sonar:sonar \
+                    -Dsonar.organization=bootcamp1 \
+                    -Dsonar.projectKey=springbootjavaapp \
+                    -Dsonar.projectName=springbootjavaapp \
+                    -Dsonar.java.binaries=target/classes
+                '''
+                }
+            }
+        }
     }
 }
