@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         ACR_SERVER = 'springbootacr98107777.azurecr.io'
-        IMAGE_NAME = 'Springboot'
+        IMAGE_NAME = 'springboot'
         IMAGE_TAG = 'latest'
     }
     stages {
